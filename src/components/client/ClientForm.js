@@ -18,7 +18,7 @@ function ClientForm(props){
 
   return (
     <div>
-      <form onSubmit={handleClientFromSubmission}>
+      <form onSubmit={handleClientFormSubmission}>
         <input
           type='text'
           id='name'
