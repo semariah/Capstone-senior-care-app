@@ -17,7 +17,7 @@ class App extends React.Component{
         <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Welcome to Senior Care App</h1>
         </header>
         <Switch>
           <Route exact path='/' component={ClientList} />
@@ -27,7 +27,7 @@ class App extends React.Component{
         </div>
       </Fragment>
       </BrowserRouter>
-  
+
   }
 
 };
