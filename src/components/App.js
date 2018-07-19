@@ -34,7 +34,7 @@ class App extends React.Component{
         </header>
         <Switch>
           <Route exact path='/' component={ClientList} />
-          <Route path='/newclient' component={ClientControl} />
+          <Route path='/newclient' render={()=><ClientControl onClientCreation={this.handleAddingClientToList} />} />
           <Route component={Error404} />
         </Switch>
         </div>

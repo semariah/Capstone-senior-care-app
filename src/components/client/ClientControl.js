@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 import ClientForm from './ClientForm'
 import ConfirmationQuestions from './ConfirmationQuestions';
 
@@ -31,6 +32,10 @@ class ClientControl extends React.Component {
       </div>
     );
   }
+}
+
+ClientControl.propTypes = {
+  onClientCreation: PropTypes.func
 }
 
 export default ClientControl;
