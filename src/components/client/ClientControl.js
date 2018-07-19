@@ -22,7 +22,7 @@ class ClientControl extends React.Component {
   render(){
     let currentlyVisibleContent = null;
     if (this.state.formVisibleOnPage){
-      currentlyVisibleContent = <ClientForm />;
+      currentlyVisibleContent = <ClientForm onClientCreation={this.props.onClientCreation}/>;
     } else {
       currentlyVisibleContent = <ConfirmationQuestions onTroubleshootingConfirmation={this.handleTroubleshootingConfirmation} />;
     }
