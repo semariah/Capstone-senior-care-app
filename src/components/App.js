@@ -33,7 +33,7 @@ class App extends React.Component{
           <h1 className="App-title">Welcome to Senior Care App</h1>
         </header>
         <Switch>
-          <Route exact path='/' component={ClientList} />
+          <Route exact path='/' render={()=><ClientList clientList={this.state.masterClientList} />} />
           <Route path='/newclient' render={()=><ClientControl onClientCreation={this.handleAddingClientToList} />} />
           <Route component={Error404} />
         </Switch>
