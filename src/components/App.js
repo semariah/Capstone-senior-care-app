@@ -8,9 +8,22 @@ import ClientList from './client/ClientList'
 import logo from '../logo.svg'
 
 
-
-
 class App extends React.Component{
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      masterClientList: []
+    };
+    this.handleAddingClientToList = this.handleAddingClientToList.bind(this);
+  }
+
+  handleAddingClientToList(newClient){
+    var newMasterClientList = this.state.masterClientList.slice();
+    newMasterClientList.push(newClient);
+    this.setState({masterClientList: newMasterClientList});
+  }
+
   render(){
     return <BrowserRouter>
     <Fragment>
