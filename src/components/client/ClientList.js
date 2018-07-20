@@ -2,8 +2,6 @@ import React from 'react'
 import Client from './Client'
 import PropTypes from 'prop-types'
 
-
-
 function ClientList(props){
   return(
     <div>

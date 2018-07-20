@@ -9,7 +9,7 @@ function ClientForm(props){
 
   function handleClientFormSubmission(event) {
     event.preventDefault();
-    props.onClientCreation({name: _name.value, address: _address.value, tel: _tel.value, service: _service.value, })
+    props.onClientCreation({name: _name.value, address: _address.value, tel: _tel.value, service: _service.value});
     _name.value = '';
     _address.value = '';
     _tel.value = '';

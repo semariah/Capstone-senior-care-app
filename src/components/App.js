@@ -16,10 +16,10 @@ class App extends React.Component{
     this.state = {
       masterClientList: []
     };
-    this.handleAddingClientToList = this.handleAddingClientToList.bind(this);
+    this.handleAddingNewClientToList = this.handleAddingNewClientToList.bind(this);
   }
 
-  handleAddingClientToList(newClient){
+  handleAddingNewClientToList(newClient){
     var newMasterClientList = this.state.masterClientList.slice();
     newMasterClientList.push(newClient);
     this.setState({masterClientList: newMasterClientList});
@@ -39,7 +39,7 @@ class App extends React.Component{
         <Home/>
         <Switch>
           <Route exact path='/' render={()=><ClientList clientList={this.state.masterClientList} />} />
-          <Route path='/newclient' render={()=><ClientControl onClientCreation={this.handleAddingClientToList} />} />
+          <Route path='/newclient' render={()=><ClientControl onClientCreation={this.handleAddingNewClientToList} />} />
           <Route component={Error404} />
         </Switch>
         </div>
