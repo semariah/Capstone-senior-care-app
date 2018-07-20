@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {Navbar, Nav, NavItem, MenuItem, NavDropdown} from 'react-bootsrap'
+import { Navbar, Nav, NavItem, MenuItem, NavDropdown, Jumbotron, Button } from 'react-bootsrap'
 
 // function Navbar(){
 //   return(
