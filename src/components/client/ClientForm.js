@@ -1,5 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import { v4 } from 'uuid';
 
 function ClientForm(props){
   let _name = null;
@@ -9,7 +10,7 @@ function ClientForm(props){
 
   function handleClientFormSubmission(event) {
     event.preventDefault();
-    props.onClientCreation({name: _name.value, address: _address.value, tel: _tel.value, service: _service.value});
+    props.onClientCreation({name: _name.value, address: _address.value, tel: _tel.value, service: _service.value, id: v4()});
     _name.value = '';
     _address.value = '';
     _tel.value = '';
