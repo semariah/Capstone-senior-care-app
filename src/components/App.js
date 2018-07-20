@@ -3,7 +3,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import './App.css'
 import Error404 from './error404/Error404'
 //import Home from './home/Home'
-import Navbar from './layouts/Navbar'
+import header from './layouts/Navbar'
 import ClientControl from './client/ClientControl'
 import ClientList from './client/ClientList'
 import logo from '../logo.svg'
@@ -27,10 +27,11 @@ class App extends React.Component{
 
   render(){
     const { header } = this.state
+    const { Navbar } = this.state
     return <BrowserRouter>
     <Fragment>
         <div className="App">
-        <Navbar />
+        <header />
         // <header className="App-header">
         //   <img src={logo} className="App-logo" alt="logo" />
         //   <h1 className="App-title">Welcome to Senior Care App</h1>
