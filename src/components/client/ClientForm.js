@@ -24,20 +24,25 @@ function ClientForm(props){
           id='name'
           placeholder= 'Name'
           ref={(input) => {_name = input;}}/>
+          <br/>
         <input
           type='text'
           id='address'
           placeholder='Address'
           ref={(input) => {_address = input;}}/>
+          <br/>
         <input
           id='tel'
           placeholder='Phone'
           ref={(input) => {_tel = input;}}/>
+          <br/>
           <input
             id='service'
             placeholder='Service Needed'
             ref={(input) => {_service = input;}}/>
-        <button type='submit'>Submit</button>
+            <br/>
+        <button type='submit' className="btn btn-success">Submit</button>
+        <br/>
       </form>
     </div>
   );
