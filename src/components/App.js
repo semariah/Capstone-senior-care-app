@@ -26,10 +26,11 @@ class App extends React.Component{
   }
 
   render(){
+    const { header } = this.state
     return <BrowserRouter>
     <Fragment>
         <div className="App">
-        <Navbar header={header} />
+        <Navbar />
         // <header className="App-header">
         //   <img src={logo} className="App-logo" alt="logo" />
         //   <h1 className="App-title">Welcome to Senior Care App</h1>

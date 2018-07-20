@@ -39,9 +39,7 @@ class header extends React.Component {
       </NavItem>
       <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
         <MenuItem eventKey={3.1}>Client-Form</MenuItem>
-        <MenuItem eventKey={3.2}>Another action</MenuItem>
-        <MenuItem eventKey={3.3}>Client-List</MenuItem>
-        <MenuItem divider />
+        <MenuItem eventKey={3.2}>Client-List</MenuItem>
       </NavDropdown>
     </Nav>
     <Nav pullRight>
@@ -55,4 +53,4 @@ class header extends React.Component {
   }
 }
 
-export { header }
+export default { header }
