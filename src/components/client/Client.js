@@ -9,9 +9,15 @@ function Client(props){
       <h6>{props.address}</h6>
       <h6>{props.tel}</h6>
       <h6>{props.service}</h6>
+      <h6>{props.appointmentDate}</h6>
+      <h6>{displayTimeOpen(props.timeOpen)}</h6>
       <hr/>
     </div>
   )
+}
+
+function displayTimeOpen(timeOpen) {
+  return timeOpen.from(new Moment(), true);
 }
 
 Client.propTypes = {
@@ -19,7 +25,8 @@ Client.propTypes = {
   address: PropTypes.string.isRequired,
   tel: PropTypes.string.isRequired,
   service: PropTypes.string.isRequired,
-  timeOpen: PropTypes.instanceOf(Moment).isRequired
+  appointmentDate: PropTypes.string.isRequired,
+  timeOpen:PropTypes.instanceOf(Moment).isRequired
 }
 
 export default Client

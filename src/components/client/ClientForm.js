@@ -8,14 +8,16 @@ function ClientForm(props){
   let _address = null;
   let _tel = null;
   let _service = null;
+  let _appointmentDate = null;
 
   function handleClientFormSubmission(event) {
     event.preventDefault();
-    props.onClientCreation({name: _name.value, address: _address.value, tel: _tel.value, service: _service.value, id: v4(), timeOpen: new Moment()});
+    props.onClientCreation({name: _name.value, address: _address.value, tel: _tel.value, service: _service.value, appointmentDate: _appointmentDate.value, id: v4(), timeOpen: new Moment()});
     _name.value = '';
     _address.value = '';
     _tel.value = '';
     _service.value = '';
+    _appointmentDate.value = '';
   }
 
   return (
@@ -43,6 +45,11 @@ function ClientForm(props){
             placeholder='Service Needed'
             ref={(input) => {_service = input;}}/>
             <br/>
+            <input
+              id='appointmentDate'
+              placeholder='Appointment Date'
+              ref={(input) => {_appointmentDate = input;}}/>
+              <br/>
         <button type='submit' className="btn btn-success">Submit</button>
         <br/>
       </form>
