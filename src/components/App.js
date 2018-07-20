@@ -7,6 +7,7 @@ import Home from './home/Home'
 import ClientControl from './client/ClientControl'
 import ClientList from './client/ClientList'
 import logo from '../logo.svg'
+import Moment from 'moment'
 
 
 class App extends React.Component{
@@ -19,8 +20,29 @@ class App extends React.Component{
     this.handleAddingNewClientToList = this.handleAddingNewClientToList.bind(this);
   }
 
+  componentDidMount() {
+    this.waitTimeUpdateTimer = setInterval(() =>
+      this.updateClientElapsedWaitTime(),
+    60000
+    );
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.waitTimeUpdateTimer);
+  }
+
+  updateClientElapsedWaitTime() {
+    console.log('check');
+    let newMasterClientList = this.state.masterClientList.slice();
+    newMasterClientList.forEach((client) =>
+      client.formattedWaitTime = (client.timeOpen).fromNow(true)
+    );
+    this.setState({masterClientList: newMasterClientList});
+  }
+
   handleAddingNewClientToList(newClient){
     var newMasterClientList = this.state.masterClientList.slice();
+    newClient.formattedWaitTime = (newClient.timeOpen).fromNow(true)
     newMasterClientList.push(newClient);
     this.setState({masterClientList: newMasterClientList});
   }
@@ -31,7 +53,6 @@ class App extends React.Component{
     return <BrowserRouter>
     <Fragment>
         <div className="App">
-        //<header />
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to Senior Care App</h1>

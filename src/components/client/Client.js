@@ -10,7 +10,7 @@ function Client(props){
       <h6>{props.tel}</h6>
       <h6>{props.service}</h6>
       <h6>{props.appointmentDate}</h6>
-      <h6>{displayTimeOpen(props.timeOpen)}</h6>
+      <h6>{props.formattedWaitTime}</h6>
       <hr/>
     </div>
   )
@@ -26,7 +26,7 @@ Client.propTypes = {
   tel: PropTypes.string.isRequired,
   service: PropTypes.string.isRequired,
   appointmentDate: PropTypes.string.isRequired,
-  timeOpen:PropTypes.instanceOf(Moment).isRequired
+  formattedWaitTime:PropTypes.string.isRequired
 }
 
 export default Client

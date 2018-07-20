@@ -3,7 +3,7 @@ import Client from './Client'
 import PropTypes from 'prop-types'
 
 function ClientList(props){
-  console.log(props.clientList)
+  //console.log(props.clientList) --checking if ID has been created
   return(
     <div>
       <hr/>
@@ -13,7 +13,7 @@ function ClientList(props){
           tel={client.tel}
           service={client.service}
           appointmentDate={client.appointmentDate}
-          timeOpen={client.timeOpen}
+          formattedWaitTime={client.formattedWaitTime}
           key={client.id}/>
       )}
     </div>
