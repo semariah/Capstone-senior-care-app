@@ -3,6 +3,7 @@ import Client from './Client'
 import PropTypes from 'prop-types'
 
 function ClientList(props){
+  console.log(props.clientList)
   return(
     <div>
       <hr/>
@@ -11,7 +12,7 @@ function ClientList(props){
           address={client.address}
           tel={client.tel}
           service={client.service}
-          key={index}/>
+          key={client.id}/>
       )}
     </div>
   );
