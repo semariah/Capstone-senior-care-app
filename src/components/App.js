@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, Component} from 'react'
 import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import './App.css'
 import Error404 from './error404/Error404'

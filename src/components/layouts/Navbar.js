@@ -19,6 +19,7 @@ import { Navbar, Nav, NavItem, MenuItem, NavDropdown, Jumbotron, Button } from '
 class header extends React.Component {
   render() {
     return(
+      <div className="Nav_container">
       <Navbar inverse collapseOnSelect>
   <Navbar.Header>
     <Navbar.Brand>
@@ -49,6 +50,7 @@ class header extends React.Component {
     </Nav>
   </Navbar.Collapse>
 </Navbar>
+</div>
     )
   }
 }
