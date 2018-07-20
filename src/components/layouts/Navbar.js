@@ -53,4 +53,4 @@ class header extends React.Component {
   }
 }
 
-export default { header }
+export default header
