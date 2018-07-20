@@ -12,6 +12,7 @@ function ClientList(props){
           address={client.address}
           tel={client.tel}
           service={client.service}
+          timeOpen={ticket.timeOpen}
           key={client.id}/>
       )}
     </div>

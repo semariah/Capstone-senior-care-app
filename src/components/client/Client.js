@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Moment from 'moment'
 
 function Client(props){
   return(
@@ -17,7 +18,8 @@ Client.propTypes = {
   name: PropTypes.string.isRequired,
   address: PropTypes.string.isRequired,
   tel: PropTypes.string.isRequired,
-  service: PropTypes.string.isRequired
+  service: PropTypes.string.isRequired,
+  timeOpen: PropTypes.instanceOf(Moment).isRequired
 }
 
 export default Client
