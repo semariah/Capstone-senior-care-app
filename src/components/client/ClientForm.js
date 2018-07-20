@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
+import Moment from 'moment';
 
 function ClientForm(props){
   let _name = null;
@@ -10,7 +11,7 @@ function ClientForm(props){
 
   function handleClientFormSubmission(event) {
     event.preventDefault();
-    props.onClientCreation({name: _name.value, address: _address.value, tel: _tel.value, service: _service.value, id: v4()});
+    props.onClientCreation({name: _name.value, address: _address.value, tel: _tel.value, service: _service.value, id: v4(), timeOpen: new Moment()});
     _name.value = '';
     _address.value = '';
     _tel.value = '';
