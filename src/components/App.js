@@ -7,7 +7,7 @@ import Home from './home/Home'
 import ClientControl from './client/ClientControl'
 import ClientList from './client/ClientList'
 import logo from '../logo.svg'
-//import Moment from 'moment'
+import Moment from 'moment'
 import Admin from './admin/Admin'
 
 
