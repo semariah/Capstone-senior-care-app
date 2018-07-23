@@ -7,7 +7,7 @@ import Home from './home/Home'
 import ClientControl from './client/ClientControl'
 import ClientList from './client/ClientList'
 import logo from '../logo.svg'
-import Moment from 'moment'
+//import Moment from 'moment'
 import Admin from './admin/Admin'
 
 
@@ -16,9 +16,11 @@ class App extends React.Component{
   constructor(props) {
     super(props);
     this.state = {
-      masterClientList: []
+      masterClientList: [],
+      selectedClient: null
     };
     this.handleAddingNewClientToList = this.handleAddingNewClientToList.bind(this);
+    this.handleChangingSelectedClient = this.handleChangingSelectedClient.bind(this);
   }
 
   componentDidMount() {
@@ -46,6 +48,12 @@ class App extends React.Component{
     newMasterClientList.push(newClient);
     this.setState({masterClientList: newMasterClientList});
   }
+  
+  handleChangingSelectedClient(client){
+  this.setState({selectedClient: client});
+  alert('The selected client is now: ' + this.state.selectedClient.name);
+}
+
 
   render(){
     //const { header } = this.state
@@ -61,7 +69,7 @@ class App extends React.Component{
         <Switch>
           <Route exact path='/' render={()=><ClientList clientList={this.state.masterClientList} />} />
           <Route path='/newclient' render={()=><ClientControl onClientCreation={this.handleAddingNewClientToList} />} />
-          <Route path='/admin' render={(props)=><Admin clientList={this.state.masterClientList} currentRouterPath={props.location.pathname} />} />
+          <Route path='/admin' render={(props)=><Admin clientList={this.state.masterClientList} currentRouterPath={props.location.pathname} onClientSelection={this.handleChangingSelectedClient} selectedClient={this.state.selectedClient}/>} />
           <Route component={Error404} />
         </Switch>
         </div>

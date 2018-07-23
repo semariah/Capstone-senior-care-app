@@ -7,21 +7,25 @@ function ClientList(props){
   return(
     <div>
       <hr/>
-      {props.clientList.map((client, index) =>
+      {props.clientList.map((client) =>
         <Client name={client.name}
           address={client.address}
           tel={client.tel}
           service={client.service}
           appointmentDate={client.appointmentDate}
           formattedWaitTime={client.formattedWaitTime}
-          key={client.id}/>
+          currentRouterPath={props.currentRouterPath}
+          key={client.id}
+          onClientSelection={props.onClientSelection}/>
       )}
     </div>
   );
 }
 
 ClientList.propTypes = {
-  clientList: PropTypes.array
+  clientList: PropTypes.array,
+  currentRouterPath: PropTypes.string,
+  onClientSelection: PropTypes.func
 }
 
 export default ClientList

@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Moment from 'moment'
+
 
 function Client(props){
-  return(
+  const clientInformation = 
     <div>
       <h3>{props.name}</h3>
       <h6>{props.address}</h6>
@@ -12,13 +12,22 @@ function Client(props){
       <h6>{props.appointmentDate}</h6>
       <h6>{props.formattedWaitTime}</h6>
       <hr/>
-    </div>
-  )
+    </div>;
+  if (props.currentRouterPath === '/admin'){
+    return (
+      <div onClick={() => {props.onClientSelection({name: props.name, address: props.address, tel: props.tel, service: props.service, appointmentDate: props.appointmentDate, formattedWaitTime: props.formattedWaitTime});}}>
+        {clientInformation}
+      </div>
+    )
+  } else {
+    return (
+      <div>
+        {clientInformation}
+      </div>
+    )
+  }
 }
 
-function displayTimeOpen(timeOpen) {
-  return timeOpen.from(new Moment(), true);
-}
 
 Client.propTypes = {
   name: PropTypes.string.isRequired,
@@ -26,7 +35,9 @@ Client.propTypes = {
   tel: PropTypes.string.isRequired,
   service: PropTypes.string.isRequired,
   appointmentDate: PropTypes.string.isRequired,
-  formattedWaitTime:PropTypes.string.isRequired
+  formattedWaitTime:PropTypes.string.isRequired,
+  currentRouterPath: PropTypes.string,
+  onClientSelection: PropTypes.func
 }
 
 export default Client
