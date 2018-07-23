@@ -33,7 +33,6 @@ class App extends React.Component{
   }
 
   updateClientElapsedWaitTime() {
-    console.log('check');
     let newMasterClientList = this.state.masterClientList.slice();
     newMasterClientList.forEach((client) =>
       client.formattedWaitTime = (client.timeOpen).fromNow(true)
@@ -62,7 +61,7 @@ class App extends React.Component{
         <Switch>
           <Route exact path='/' render={()=><ClientList clientList={this.state.masterClientList} />} />
           <Route path='/newclient' render={()=><ClientControl onClientCreation={this.handleAddingNewClientToList} />} />
-          <Route path='/admin' component={Admin} />
+          <Route path='/admin' render={()=><Admin clientList={this.state.masterClientList} />} />
           <Route component={Error404} />
         </Switch>
         </div>
