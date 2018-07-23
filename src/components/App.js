@@ -8,6 +8,7 @@ import ClientControl from './client/ClientControl'
 import ClientList from './client/ClientList'
 import logo from '../logo.svg'
 import Moment from 'moment'
+import Admin from './admin/Admin'
 
 
 class App extends React.Component{
@@ -61,6 +62,7 @@ class App extends React.Component{
         <Switch>
           <Route exact path='/' render={()=><ClientList clientList={this.state.masterClientList} />} />
           <Route path='/newclient' render={()=><ClientControl onClientCreation={this.handleAddingNewClientToList} />} />
+          <Route path='/admin' component={Admin} />
           <Route component={Error404} />
         </Switch>
         </div>
