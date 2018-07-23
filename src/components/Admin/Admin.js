@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import ClientList from '../client/ClientList'
 
 function Admin(props){
+  console.log(props.currentRouterPath);
   return(
     <div>
       <h2>Admin</h2>
@@ -12,7 +13,8 @@ function Admin(props){
 }
 
 Admin.propTypes = {
-  clientList: PropTypes.array
+  clientList: PropTypes.array,
+  currentRouterPath: PropTypes.string.isRequired
 };
 
 export default Admin
