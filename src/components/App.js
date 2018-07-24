@@ -54,10 +54,24 @@ class App extends React.Component{
   alert('The selected client is now: ' + this.state.selectedClient.name);
 }
 
+goTo(route) {
+    this.props.history.replace(`/${route}`)
+  }
+
+  login() {
+    this.props.auth.login();
+  }
+
+  logout() {
+    this.props.auth.logout();
+  }
+
 
   render(){
     //const { header } = this.state
     //const { Navbar } = this.state
+    const { isAuthenticated } = this.props.auth;
+
     return <BrowserRouter>
     <Fragment>
         <div className="App">
