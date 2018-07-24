@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "auth0-js": "^9.7.3",
     "bootstrap": "^3.3.7",
+    "history": "^4.7.2",
     "moment": "^2.18.1",
     "prop-types": "^15.5.10",
     "react": "^16.4.1",
