@@ -3,13 +3,17 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom'
 import './App.css'
 import Error404 from './error404/Error404'
 import Home from './home/Home'
-//import header from './layouts/Navbar'
+import Navbar from './layouts/Navbar'
 import ClientControl from './client/ClientControl'
 import ClientList from './client/ClientList'
 import logo from '../logo.svg'
 import Moment from 'moment'
 import Admin from './admin/Admin'
 import Auth from './auth/Auth'
+import Callback from './callback/Callback'
+import History from './history/History'
+
+
 
 
 class App extends React.Component{
@@ -69,61 +73,32 @@ goTo(route) {
 
 
   render(){
-    const { isAuthenticated } = this.props.auth;
     const auth = new Auth();
     auth.login();
-    return 
-    <div>
-        <Navbar fluid>
-          <Navbar.Header>
-            <Navbar.Brand>
-              <a href="#">Auth0 - React</a>
-            </Navbar.Brand>
-            <Button
-              bsStyle="primary"
-              className="btn-margin"
-              onClick={this.goTo.bind(this, 'home')}
-            >
-              Home
-            </Button>
-            {
-              !isAuthenticated() && (
-                  <Button
-                    bsStyle="primary"
-                    className="btn-margin"
-                    onClick={this.login.bind(this)}
-                  >
-                    Log In
-                  </Button>
-                )
-            }
-            {
-              isAuthenticated() && (
-                  <Button
-                    bsStyle="primary"
-                    className="btn-margin"
-                    onClick={this.logout.bind(this)}
-                  >
-                    Log Out
-                  </Button>
-                )
-            }
-          </Navbar.Header>
-        </Navbar>
-      </div>;
-      
-    <BrowserRouter>
+    
+    const handleAuthentication = (nextState, replace) => {
+  if (/access_token|id_token|error/.test(nextState.location.hash)) {
+    auth.handleAuthentication();
+  }
+}
+    
+    return <BrowserRouter>
     <Fragment>
         <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Senior Care App</h1>
-        </header>
-        <Home/>
+        // <header className="App-header">
+        //   <img src={logo} className="App-logo" alt="logo" />
+        //   <h1 className="App-title">Welcome to Senior Care App</h1>
+        // </header>
+        <Home />
+        <Navbar />
         <Switch>
           <Route exact path='/' render={()=><ClientList clientList={this.state.masterClientList} />} />
           <Route path='/newclient' render={()=><ClientControl onClientCreation={this.handleAddingNewClientToList} />} />
           <Route path='/admin' render={(props)=><Admin clientList={this.state.masterClientList} currentRouterPath={props.location.pathname} onClientSelection={this.handleChangingSelectedClient} selectedClient={this.state.selectedClient}/>} />
+          <Route path="/callback" render={(props) => {
+          handleAuthentication(props);
+          return <Callback {...props} /> 
+        }}/>
           <Route component={Error404} />
         </Switch>
         </div>

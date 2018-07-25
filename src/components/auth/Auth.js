@@ -5,7 +5,7 @@ export default class Auth {
   auth0 = new auth0.WebAuth({
     domain: 'semariah.auth0.com',
     clientID: 'VOsM0w0wqn2GDTsNGn2Z8zT7WbhkmZYv',
-    redirectUri: 'http://localhost:3000/Home',
+    redirectUri: 'http://localhost:3000/callback',
     audience: 'https://semariah.auth0.com/userinfo',
     responseType: 'token id_token',
     scope: 'openid'
