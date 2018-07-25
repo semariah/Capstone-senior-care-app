@@ -10,8 +10,8 @@ import logo from '../logo.svg'
 import Moment from 'moment'
 import Admin from './admin/Admin'
 import Auth from './auth/Auth'
-import Callback from './callback/Callback'
 import History from './history/History'
+import Callback from './callback/Callback'
 
 
 
@@ -75,7 +75,7 @@ goTo(route) {
   render(){
     const auth = new Auth();
     auth.login();
-    
+
     const handleAuthentication = (nextState, replace) => {
   if (/access_token|id_token|error/.test(nextState.location.hash)) {
     auth.handleAuthentication();
@@ -85,17 +85,18 @@ goTo(route) {
     return <BrowserRouter>
     <Fragment>
         <div className="App">
-        // <header className="App-header">
-        //   <img src={logo} className="App-logo" alt="logo" />
-        //   <h1 className="App-title">Welcome to Senior Care App</h1>
-        // </header>
-        <Home />
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Welcome to Senior Care App</h1>
+        </header>
+        //<Home />
         <Navbar />
         <Switch>
           <Route exact path='/' render={()=><ClientList clientList={this.state.masterClientList} />} />
           <Route path='/newclient' render={()=><ClientControl onClientCreation={this.handleAddingNewClientToList} />} />
           <Route path='/admin' render={(props)=><Admin clientList={this.state.masterClientList} currentRouterPath={props.location.pathname} onClientSelection={this.handleChangingSelectedClient} selectedClient={this.state.selectedClient}/>} />
-          <Route path="/callback" render={(props) => {
+          <Route path="/home" render={(props) => <Home auth={auth} {...props} />} />
+        <Route path="/callback" render={(props) => {
           handleAuthentication(props);
           return <Callback {...props} /> 
         }}/>
